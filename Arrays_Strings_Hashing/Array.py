@@ -177,3 +177,203 @@
 
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
+
+
+
+
+# Insertions : At Beginning, At given position and At the end.
+
+# At Beginning
+
+# [Approach 1] Using Built-In Methods
+
+# Code 
+
+# arr = [10, 20, 30, 40]
+# element = 50
+# print("Array before insertion")
+# for i in range(len(arr)):
+# 	print(arr[i], end=" ")
+
+# # Insert element at the beginning
+# arr.insert(0, element)
+
+# print("\nArray after insertion")
+# for i in range(len(arr)):
+#     print(arr[i], end=" ")
+
+
+# Output: Array before insertion
+# 10 20 30 40 
+# Array after insertion
+# 50 10 20 30 40 
+
+# Time Complexity: O(n)
+
+
+# [Approach 2] Using Custom Method
+
+# Code 
+
+# Python program to insert given element at the beginning 
+# of an array
+
+# arr = [10, 20, 30, 40, 0]
+# n = 4
+# element = 50
+    
+# print("Array before insertion")
+# for i in range(n):
+#     print(arr[i], end=" ")
+    
+# # Shift all elements to the right
+# for i in range(n - 1, -1, -1):
+#     arr[i + 1] = arr[i]
+
+# # Insert new element at the beginning
+# arr[0] = element
+
+# print("\nArray after insertion")
+# for i in range(n + 1):
+#     print(arr[i], end=" ") 
+
+
+# Output: Array before insertion
+# 10 20 30 40 
+# Array after insertion
+# 50 10 20 30 40 
+
+# Time Complexity: O(n)
+
+
+
+
+
+
+# Insert Element at a Given Position in an Array
+
+# [Approach 1] Using Built-In Methods
+
+# Code 
+
+# if __name__ == "__main__":
+#     arr = [10, 20, 30, 40]
+#     ele = 50
+#     pos = 2
+#     print("Array before insertion")
+#     print(arr)
+
+#     # Insert element at the given position
+#     arr.insert(pos - 1, ele)
+
+#     print("Array after insertion")
+#     print(arr)
+
+# Output
+# Array before insertion
+# 10 20 30 40 
+# Array after insertion
+# 10 50 20 30 40 
+
+# Time Complexity: O(n)
+
+
+
+# [Approach 2] Using Custom Method
+
+# Code 
+
+# arr = [10, 20, 30, 40, 0]
+# n = 4
+# element = 50
+    
+# print("Array before insertion")
+# for i in range(n):
+#     print(arr[i], end=" ")
+    
+# # Shift all elements to the right
+# for i in range(n - 1, -1, -1):
+#     arr[i + 1] = arr[i]
+
+# # Insert new element at the beginning
+# arr[0] = element
+
+# print("\nArray after insertion")
+# for i in range(n + 1):
+#     print(arr[i], end=" ")
+
+
+# Output
+# Array before insertion
+# 10 20 30 40 
+# Array after insertion
+# 10 50 20 30 40 
+
+# Time Complexity: O(n)
+
+
+
+
+# Insert Element at the End of an Array
+
+# [Approach 1] Using Built-In Methods
+
+# Code 
+
+# if __name__ == "__main__":
+#     arr = [10, 20, 30, 40]
+#     ele = 50
+#     print("Array before insertion")
+#     for i in range(len(arr)):
+#         print(arr[i], end=" ")
+
+#     # Insert element at the end
+#     arr.append(ele)
+
+#     print("\nArray after insertion")
+#     for i in range(len(arr)):
+#         print(arr[i], end=" ")
+
+
+# Array before insertion
+# 10 20 30 40 
+# Array after insertion
+# 10 20 30 40 50 
+
+# Time Complexity: O(1)
+# Auxiliary Space: O(1)
+
+
+# [Approach 2] Using Custom Method
+
+# Code 
+
+# if __name__ == "__main__":
+#     n = 4
+#     arr = [10, 20, 30, 40, 0]
+#     ele = 50
+
+#     print("Array before insertion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+
+#     # Inserting element at the end of the array
+#     arr[n] = ele
+
+#     print("\nArray after insertion")
+#     for i in range(n + 1):
+#         print(arr[i], end=" ")
+
+
+# Output
+# Array before insertion
+# 10 20 30 40 
+# Array after insertion
+# 10 20 30 40 50 
+
+# Time Complexity: O(1)
+# Auxiliary Space: O(1)
+
+
+
+
