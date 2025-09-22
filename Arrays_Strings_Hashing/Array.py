@@ -377,3 +377,323 @@
 
 
 
+# Deletion : From Beginning, Given Position, First Occurrence, All occurrences and From End
+
+# Delete an Element from the Beginning of an Array
+
+# [Approach 1] Using Built-In Methods
+
+# Code 
+
+# arr = [10, 20, 30, 40]
+
+# print("Array before deletion")
+# for i in range(len(arr)):
+#     print(arr[i], end=" ")
+
+# # Remove the first element 
+# del arr[0]
+
+# print("\nArray after deletion")
+# for i in range(len(arr)):
+#     print(arr[i], end=" ")
+    
+
+# Output
+# Array before deletion
+# 10 20 30 40 
+# Array after deletion
+# 20 30 40 
+
+# Time Complexity: O(n) 
+# Auxiliary Space: O(1)
+
+
+# [Approach 2] Using Custom Methods
+
+# Code 
+
+
+# if __name__ == "__main__":
+#     arr = [10, 20, 30, 40]
+#     n = len(arr)
+  
+#     print("Array before deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+
+#     # Shift all the elements 1 position to the left
+#     # starting from second element
+#     for i in range(1, n):
+#         arr[i - 1] = arr[i]
+	
+#     # Reduce the array size by 1
+#     n -= 1
+
+#     print("\nArray after deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+
+#Output
+# Array before deletion
+# 10 20 30 40 
+# Array after deletion
+# 20 30 40 
+
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
+
+
+
+
+#Delete an Element from a Given Position in an Array
+
+# [Approach 1] Using Built-In Methods
+
+# Code
+
+# arr = [10, 20, 30, 40]
+# pos = 2
+
+# print("Array before deletion")
+# for num in arr:
+#     print(num, end=" ")
+
+# # Delete the element at the specified position
+# del arr[pos - 1]
+
+# print("\nArray after deletion")
+# for num in arr:
+#     print(num, end=" ")
+
+
+# Output
+# Array before deletion
+# 10 20 30 40 
+# Array after deletion
+# 10 30 40 
+
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
+
+
+
+# [Approach 2] Using Custom Method
+
+
+# Code
+
+
+# if __name__ == "__main__":
+#     arr = [10, 20, 30, 40]
+#     n = len(arr)
+#     pos = 2
+
+#     print("Array before deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+
+#     # Delete the element at the given position
+#     for i in range(pos, n):
+#         arr[i - 1] = arr[i]
+
+#     if pos <= n:
+#         n -= 1
+
+#     print("\nArray after deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+
+
+# Output
+# Array before deletion
+# 10 20 30 40 
+# Array after deletion
+# 10 30 40 
+
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
+
+
+
+
+# Delete First Occurrence of Given Element from an Array
+
+# [Approach 1] Using Built-In Methods
+
+# Code 
+# if __name__ == "__main__":
+
+# 	arr = [10, 20, 20, 20, 30]
+# 	ele = 20
+
+# 	print("Array before deletion")
+# 	for num in arr:
+# 		print(num, end=" ")
+
+#     # Remove the element if it is present in array
+# 	if ele in arr:
+# 		arr.remove(ele)
+
+# 	print("\nArray after deletion")
+# 	for num in arr:
+# 		print(num, end=" ")
+  
+# Output
+# Array before deletion
+# 10 20 20 20 30 
+# Array after deletion
+# 10 20 20 30 
+
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
+
+
+
+# [Approach 2] Using Custom Methods
+
+# Code 
+
+
+# if __name__ == "__main__":
+#     arr = [10, 20, 20, 20, 30]
+#     n = len(arr)
+#     ele = 20
+
+#     print("Array before deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+    
+#     found = False
+#     for i in range(n):
+      
+#         # If the element has been found previously,
+#         # shift the current element to the left
+#         if found:
+#             arr[i - 1] = arr[i]
+        
+#         # check if the current element is equal to
+#         # the element to be removed
+#         elif arr[i] == ele:
+#             found = True
+    
+#     # If element was found, reduce the size of array
+#     if found:
+#         n -= 1
+    
+#     print("\nArray after deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+        
+        
+        
+# Output
+# Array before deletion
+# 10 20 20 20 30 
+# Array after deletion
+# 10 20 20 30 
+
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
+
+
+
+
+
+
+# Remove All Occurrences of an Element in an Array
+# The idea is to iterate over the array while maintaining a subarray at the beginning that contains only the elements which are not equal to ele. So, we can use a counter, say k to track the ending point of this subarray and whenever we encounter an element which is not equal to ele, we can add the element at kth index and increment the value of k.
+
+# Code
+
+# def removeElement(arr, ele):
+  
+#     # Initialize the counter for the 
+#     # elements not equal to ele    
+#     k = 0
+#     for i in range(len(arr)):
+
+#         # Place the element which is not 
+#         # equal to ele at the kth position
+#         if arr[i] != ele:
+#             arr[k] = arr[i]  
+            
+#             # Increment the count of 
+#             # elements not equal to ele
+#             k += 1             
+              
+#     return k 
+  
+# if __name__ == "__main__":
+#     arr = [0, 1, 3, 0, 2, 2, 4, 2]
+#     ele = 2
+#     print(removeElement(arr, ele))
+    
+# Output
+# 5
+
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
+
+
+
+
+# Delete an Element from the end of an array
+
+# [Approach 1] Using Built-In Methods
+#Code
+
+# arr = [10, 20, 30, 40]
+
+# print("Array before deletion")
+# for ele in arr:
+#     print(ele, end=" ")
+
+# # Remove the last element from the array
+# arr.pop()
+
+# print("\nArray after deletion")
+# for ele in arr:
+#     print(ele, end=" ")
+
+# Output
+# Array before deletion
+# 10 20 30 40 
+# Array after deletion
+# 10 20 30 
+
+# Time Complexity: O(1) 
+# Auxiliary Space: O(1)
+
+
+
+# [Approach 2] Using Custom Method
+# Code
+
+# if __name__ == "__main__":
+#     arr = [10, 20, 30, 40]
+#     n = len(arr)
+  
+#     print("Array before deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+    
+#     # Reduce the array size by 1
+#     n -= 1
+
+#     print("\nArray after deletion")
+#     for i in range(n):
+#         print(arr[i], end=" ")
+        
+        
+# Output
+# Array before deletion
+# 10 20 30 40 
+# Array after deletion
+# 10 20 30 
+
+# Time Complexity: O(1) 
+# Auxiliary Space: O(1)
+
+
+
