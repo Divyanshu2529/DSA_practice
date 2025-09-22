@@ -666,7 +666,7 @@ for ele in arr:
 
 
 # [Approach 2] Using Custom Method
-Code
+#Code
 
 if __name__ == "__main__":
     arr = [10, 20, 30, 40]
