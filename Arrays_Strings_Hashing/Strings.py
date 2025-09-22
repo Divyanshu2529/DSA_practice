@@ -474,3 +474,159 @@ if __name__ == '__main__':
 
 # Time Complexity : O(m + n) where m and n are lengths of the two strings.
 
+
+
+
+
+
+#Reverse a String
+# Using backward traversal 
+
+def reverseString(s):
+    res = []
+  
+    # Traverse on s in backward direction
+    # and add each character to the list
+    for i in range(len(s) - 1, -1, -1):
+        res.append(s[i])
+
+    # Convert list back to string
+    return ''.join(res)
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+    
+
+# Output
+# efcdba
+
+# Time Complexity: O(n) for backward traversal
+# Auxiliary Space: O(n) for storing the reversed string.
+    
+
+
+# Using Two Pointers 
+
+def reverseString(s):
+    left = 0
+    right = len(s) - 1
+    
+    # Convert string to a list for mutability
+    s = list(s)  
+    
+    # Swap characters from both ends till we reach
+    # the middle of the string
+    while left < right:
+        s[left], s[right] = s[right], s[left]
+        left += 1
+        right -= 1
+    
+    # Convert list back to string
+    return ''.join(s)  
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+    
+
+# Output
+# efcdba
+
+# Time Complexity: O(n) 
+# Auxiliary Space: O(1)
+
+
+
+#  Using Recursion
+# Python program to reverse a string using Recursion
+
+# Recursive Function to reverse a string
+def reverseStringRec(arr, l, r):
+    if l >= r:
+        return
+
+    # Swap the characters at the ends
+    arr[l], arr[r] = arr[r], arr[l]
+
+    # Recur for the remaining string
+    reverseStringRec(arr, l + 1, r - 1)
+
+def reverseString(s):
+  
+  	# Convert string to list of characters
+    arr = list(s)  
+    reverseStringRec(arr, 0, len(arr) - 1)
+    
+    # Convert list back to string
+    return ''.join(arr)  
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+    
+    
+# Output
+# efcdba
+
+# Time Complexity: O(n) where n is length of string
+# Auxiliary Space: O(n)
+
+
+# Using Stack - O(n) Time and O(n) Space
+
+# Python program to reverse a string using stack
+def reverseString(s):
+    stack = []
+    
+    # Push the characters into stack
+    for char in s:
+        stack.append(char)
+
+    # Prepare a list to hold the reversed characters
+    rev = [''] * len(s)
+
+    # Pop the characters from stack into the reversed list
+    for i in range(len(s)):
+        rev[i] = stack.pop()
+
+    # Join the list to form the reversed string
+    return ''.join(rev)
+
+if __name__ == "__main__":
+    s = "abdcfe"
+    print(reverseString(s))
+    
+    
+# Output
+# efcdba
+
+# Time Complexity: O(n) 
+# Auxiliary Space: O(n)
+
+
+# Using Inbuilt methods 
+
+# Function to reverse a string
+def reverseString(s):
+  	
+    # Reverse the string using slicing
+    return s[::-1]
+
+if __name__ == "__main__":
+    str = "abdcfe"
+    print(reverseString(str))
+    
+    
+
+# Output
+# efcdba
+
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+
+
+
+
+
+# Generate all Sunstrings
