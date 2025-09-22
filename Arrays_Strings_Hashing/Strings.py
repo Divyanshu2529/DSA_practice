@@ -386,3 +386,46 @@ print(s)
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
 
+
+
+
+
+
+# Remove all occurrences of a character in a string
+
+#  Using Built-In Methods
+
+s = "ababca"
+c = 'a'
+
+# Remove all occurrences of 'c' from 's'
+s = s.replace(c, '')
+
+print(s)
+
+# Output
+# bbc
+
+
+# Writing Your Own Method
+def remove_char(s: str, c: str) -> str:
+    result = []
+    for ch in s:
+        if ch != c:
+            result.append(ch)
+    return "".join(result)
+
+def main():
+    s = "geeksforgeeks"
+    s = remove_char(s, 'g')
+    print(s)
+
+if __name__ == "__main__":
+    main()
+
+# Output
+# eeksforeeks
+
+# Time Complexity : O(n) where n is length of input string.
+# Auxiliary Space : O(1)
+
