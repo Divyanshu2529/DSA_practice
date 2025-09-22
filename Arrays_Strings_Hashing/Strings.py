@@ -429,3 +429,48 @@ if __name__ == "__main__":
 # Time Complexity : O(n) where n is length of input string.
 # Auxiliary Space : O(1)
 
+
+
+# Concatenation of Two Strings
+
+s1 = "Hello, "
+s2 = "World!"
+
+# Concatenating the strings
+res = s1 + s2
+
+print(res)
+
+# Output
+# Hello, World!
+
+# Write your Own Method
+def concat(s1, s2):
+    res = ''
+    
+    # Append s1 to res
+    for c in s1:
+        res += c
+    
+    # Append s2 to res
+    for c in s2:
+        res += c
+    
+    return res
+
+if __name__ == '__main__':
+    s1 = 'Hello, '
+    s2 = 'World!'
+    
+    # Call the function to concatenate the strings
+    res = concat(s1, s2)
+    
+    print(res)
+    
+
+
+# Output
+# Hello, World!
+
+# Time Complexity : O(m + n) where m and n are lengths of the two strings.
+
