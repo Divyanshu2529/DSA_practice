@@ -29,3 +29,23 @@
 # Hashing with Chaining Implementation
 # The idea is to make each cell of hash table point to a linked list of records that have same hash function value.
 
+
+# Hash Set : Its a set of value stored at a perticular index, we can perform operations like lookup, add, and remove
+
+# Lookup: *O(1) amortized
+# add: O(1) amortized
+# delete: *O(1) amortized
+
+
+# Hash Map: It have all the same fuctionality as a Hash Set, except it can store data.
+
+# In the hash map, the key get map to the values or the data associated with key, and we need to keep in mind that the keys should be hashable, and the value can be anything.
+
+# Lookup: *O(1) amortized
+# add: O(1)
+# Remove: *O(1) amortized
+
+# Thing which are hashable: Strings, Integers, Tuples (1,2,3)
+# Thing which are not hashable: Array, Dictionaries
+
+# Things that are immutable are hashable and things which are not hashable are mutable.
