@@ -49,3 +49,88 @@
 # Thing which are not hashable: Array, Dictionaries
 
 # Things that are immutable are hashable and things which are not hashable are mutable.
+
+
+
+# Hashsets
+
+s = set()    # it wil create a set s
+
+# adding into the set - O(1)
+
+s.add(1)
+s.add(2)
+s.add(3)
+s.add(4)
+
+# lookup if item in set - O(1)
+
+if 1 in s:
+    print(True)
+    
+
+# Remove item from set - O(1)
+
+s.remove(3)
+print (s)
+
+
+# set construction - O(S) - S is the length of the string
+
+string= "aaaaaaaaaabbbbbbbbbbcccccccceeeeeeee"
+
+sett= set(string)
+
+print (sorted(sett))
+
+
+
+
+
+# Hashmaps - called Dictionaries in python 
+
+d = {'greg': 1, 'steve':2, 'rob':3}
+print(d)
+
+# Add key:val in dictionary: O(1)
+
+d['arsh'] = 4
+print(d)
+
+# Check for presence of key in dictionary: O(1)
+if 'greg' in d:
+    print(True)
+    
+# Check the value corressponding to a key in a dictionary: O(1)
+print(d['greg'])
+# Output: 1
+
+# Loop over the key:val pairs of the dictionary: O(n)
+for key, val in d.items():
+    print(f'{key}:{val}')
+    
+
+
+
+
+# Default Dict
+
+from collections import defaultdict
+
+default = defaultdict(int)
+
+print(default[2])
+
+
+
+
+# Counter - count elements of the thing given to it.
+
+from collections import Counter
+
+string = 'aaaaaaaabbbbbbbbbbcccccccdddddddd'
+
+counter = Counter(string)
+
+print(counter)
+
