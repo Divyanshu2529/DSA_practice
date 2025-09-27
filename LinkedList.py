@@ -142,5 +142,161 @@ if __name__ == "__main__":
 
 
 
+# Insert a Node at Front of a Linked List
+
+# To insert a new node at the front, we create a new node and point its next reference to the current head of the linked list. Then, we update the head to be this new node. This operation is efficient because it only requires adjusting a few pointers.
+
+# Define a node in the linked list
+class Node:
+    def __init__(self,x):
+        self.data = x
+        self.next = None
+    
+def insert_at_front(head, x):
+    newNode = Node (x)
+    newNode.next = head
+    return newNode
+
+def printList(head):
+    curr = head
+    while curr is not None:
+        print(curr.data, end="")
+        if curr.next is not None:
+            print("-->", end="")
+        curr = curr.next
+    print()
+    
+if __name__ == '__main__':
+    head = Node(2)
+    head.next = Node(3)
+    head.next.next = Node(4)
+    head.next.next.next = Node(5)    
+    
+    x = 1
+    head = insert_at_front(head, x)
+    
+    printList(head)
+# Output
+# 1 -> 2 -> 3 -> 4 -> 5
+
+# Time Complexity: O(1), We have a pointer to the head and we can directly attach a node and update the head pointer. So, the Time complexity of inserting a node at the head position is O(1).
+# Auxiliary Space: O(1)
 
 
+
+
+# Insert Node at the End of a Linked List
+
+# Inserting at the end involves traversing the entire list until we reach the last node. We then set the last node's next reference to point to the new node, making the new node the last element in the list.
+
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.next = None
+
+def insertAtEnd(head, x):
+    newNode = Node(x)
+    
+    if head is None:
+        return newNode
+    
+    temp = head
+    
+    while temp.next is not None:
+        temp = temp.next 
+        
+    temp.next = newNode
+    
+    return head
+
+def printList(head):
+    curr = head
+    while curr is not None:
+        print(curr.data, end="")
+        if curr.next is not None:
+            print("-->", end=" ")
+        curr = curr.next 
+    print()
+    
+        
+if __name__ == "__main__":
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
+
+head = insertAtEnd(head,6)
+
+printList(head)
+
+# Output
+# 2 -> 3 -> 4 -> 5 -> 6 -> 1
+# Time Complexity: O(n) where n is the length of the linked list
+# Auxiliary Space: O(1)
+
+
+
+# Insert a node at a specific position in a linked list
+
+# The idea is simple: create a new node, then find the spot where it should be placed. Walk through the list until you reach the node just before that position. Link the new node’s next to the following node, and adjust the previous node’s next to point to the new node. 
+# O(n) time and O(1) space:
+
+class Node:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+def insertPos(head, pos, val):
+
+    if pos < 1:
+        return head
+
+    # head will change if pos = 1
+    if pos == 1:
+        newNode = Node(val)
+        newNode.next = head
+        return newNode
+
+    curr = head
+
+    # Traverse to the node just before the new node
+    for i in range(1, pos - 1):
+        if curr is None:
+            return head
+        curr = curr.next
+
+    # If position is greater than number of nodes
+    if curr is None:
+        return head
+
+    newNode = Node(val)
+
+    # update the next pointers
+    newNode.next = curr.next
+    curr.next = newNode
+
+    return head
+
+def printList(head):
+    curr = head
+    while curr:
+        print(curr.val, end="")
+        if curr.next:
+            print(" -> ", end="")
+        curr = curr.next
+    print()
+
+if __name__ == "__main__":
+    # Creating the list 1->2->4
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(4)
+    
+    val, pos = 3, 3
+    head = insertPos(head, pos, val)
+    printList(head)
+    
+    
+    
+    
