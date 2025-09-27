@@ -774,3 +774,108 @@ if __name__ == "__main__":
     
 # Output: -4 -1 5 4 10 
 # O(n) Time and O(1)
+
+
+
+
+
+
+
+# Reverse a Linked List
+
+# Approach] Using Iterative Method
+
+# The idea is to reverse the linked list by changing the direction of links using three pointers: prev, curr, and next. At each step, point the current node to its previous node and then move all three pointers forward until the list is fully reversed.
+
+class Node:
+    def __init__(self,x):
+        self.data = x
+        self.next = None
+        
+def reverseList(head):
+    curr = head
+    prev = None
+    
+    while curr is not None:
+        nextNode = curr.next 
+        curr.next = prev
+        
+        
+        prev = curr
+        curr = nextNode
+        
+    return prev
+
+def printList(node):
+    while node is not None:
+        print(f"{node.data}", end ="")
+        if node.next is not None:
+            print("-->", end ="")
+        node = node.next 
+    print()
+
+if __name__ == "__main__":
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
+    head = reverseList(head)
+    printList(head)
+
+# Output: 5 -> 4 -> 3 -> 2 -> 1
+# O(n) Time and O(1) Space
+
+
+
+
+# [Alternate Approach 1] Using Recursion Method
+
+class Node:
+    def __init__(self, newData):
+        self.data = newData
+        self.next = None
+
+def reverseList(head):
+    if head is None or head.next is None:
+        return head
+
+    # reverse the rest of linked list and put the
+    # first element at the end
+    rest = reverseList(head.next)
+
+    # make the current head as last node of
+    # remaining linked list
+    head.next.next = head
+
+    # update next of current head to NULL
+    head.next = None
+
+    return rest
+
+
+def printList(node):
+    while node is not None:
+        print(f"{node.data}", end="")
+        if node.next is not None:
+            print(" -> ", end="")
+        node = node.next
+    print()
+
+
+if __name__ == "__main__":
+
+    # Create a hard-coded linked list:
+    # 1 -> 2 -> 3 -> 4 -> 5
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
+
+    head = reverseList(head)
+    printList(head)
+
+
+# O(n) Time and O(n) Space
+# Output: 5 -> 4 -> 3 -> 2 -> 1
