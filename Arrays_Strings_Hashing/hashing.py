@@ -135,3 +135,51 @@ counter = Counter(string)
 print(counter)
 
 
+# In seperate chaning if we want to put more than one element in the same index then we tie them as a linked list, on the other hand i linear probing if there is already an element on the index we want to put are element then it will put it to the next index and if we delete the one before that then we need to mark it as -1 so that we can look for the element which was put on the next index because it was not empty at that time.
+
+
+
+# Collision Resolution Techniques 
+# 1) Seperate Chaining (Open Hashing)   2) Open Addressing (Closed Hashing)-  Linear Probing, Quadratic probing, Double Hashing
+
+
+# 1) Separate Chaining - The idea behind Separate Chaining is to make each cell of the hash table point to a linked list of records that have the same hash function value. Chaining is simple but requires additional memory outside the table.
+
+# 2.) Open Addressing - In open addressing, all elements are stored in the hash table itself. Each table entry contains either a record or NIL. When searching for an element, we examine the table slots one by one until the desired element is found or it is clear that the element is not in the table.
+
+# 2.a) Linear Probing - In linear probing, the hash table is searched sequentially that starts from the original location of the hash. If in case the location that we get is already occupied, then we check for the next location.
+
+# Algorithm:
+
+# Calculate the hash key. i.e.  key = data % size
+# Check, if  hashTable[key]  is empty 
+# store the value directly by  hashTable[key] = data
+# If the hash index already has some value then
+# check for next index using  key = (key+1) % size
+# Check, if the next index is available hashTable[key] then store the value. Otherwise try for next index.
+# Do the above process till we find the space.
+
+
+# 2.b) Quadratic Probing- Step 1 - Empty hash table with range of hash values from 0 to 6 according to the hash function provided.
+
+# Step 2 - The first Key to be inserted is 22 which is mapped to slot 1 (22%7 =1)
+
+# Step 3 - The nect key 30 which is mapped to Slot 2 (30%7 = 2)
+
+# Step 4 - The next key is 50 which is mapped to Slot 1 (50%7 = 1) but the slot 1 is already occupied. So, we will search slot 1+1^2. Again slot 2 is occupied, so we will search cell slot1+2^2 i.e 1+4 =5
+
+
+# 2.c) Double Hashing - Step 1 - Empty hash table with range of hash values from 0 to 6 according to the hash function provided.
+
+# Step 2 - The first key to be inserted is 27 which is mapped to slot 6 (27%7=6)
+
+# Step 3 - The next key to be inserted is 43 which is mapped to slot 1 (43%7=1)
+
+# Step 4 - The next key is 692 which is mapped to slot 6 (692%7 = 6), but location 6 is already occupied. Using Double hashing,
+
+#hnew = [h1(692)+i*(h2(692))]%7
+# =[6+1*(1+692%5)]%7
+# 9%7
+# 2
+
+# Now, as 2 is an empty slot, so we can insert 692 into 2nd slot.
