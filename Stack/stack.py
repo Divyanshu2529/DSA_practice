@@ -298,3 +298,198 @@ if __name__ == "__main__":
 # Top element: 3
 # Is stack empty: No
 # Current size: 3 
+
+
+
+
+# Stack - Linked List Implementation
+# A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. It can be implemented using a linked list, where each element of the stack is represented as a node. The head of the linked list acts as the top of the stack.
+
+# Declaration of Stack using Linked List
+# A stack can be implemented using a linked list where we maintain:
+
+# A Node structure/class that contains:
+# data → to store the element.
+# next → pointer/reference to the next node in the stack.
+# A pointer/reference top that always points to the current top node of the stack.
+# Initially, top = null to represent an empty stack.
+
+# # Node structure
+# class Node:
+#     def __init__(self, x):
+#         self.data = x
+#         self.next = None
+
+
+# # Stack class
+# class myStack:
+#     def __init__(self):
+        
+#         # initially stack is empty
+#         self.top = None
+
+
+
+
+# Operations on Stack using Linked List
+
+# Push Operation
+# Adds an item to the stack. Unlike array implementation, there is no fixed capacity in linked list. Overflow occurs only when memory is exhausted.
+
+#  A new node is created with the given value.
+# The new node’s next pointer is set to the current top.
+# The top pointer is updated to point to this new node.
+
+
+# def push(self, x):
+#     temp = Node(x)
+#     temp.next = self.top
+#     self.top = temp
+
+# Time Complexity: O(1)
+# Auxiliary Space: O(1)
+
+
+
+# Pop Operation
+
+# Removes the top item from the stack. If the stack is empty, it is said to be an Underflow condition.
+
+# Before deleting, we check if the stack is empty (top == NULL).
+# If the stack is empty, underflow occurs and deletion is not possible.
+# Otherwise, we store the current top node in a temporary pointer.
+# Move the top pointer to the next node.
+# Delete the temporary node to free memory.
+
+# def pop(self):
+   
+#     if self.top is None:
+#         print("Stack Underflow")
+#         return -1
+
+#     temp = self.top
+#     self.top = self.top.next
+#     val = temp.data
+
+#     del temp
+#     return val
+
+
+# Time Complexity: O(1)
+# Auxiliary Space: O(1)
+
+
+
+# Peek (or Top) Operation
+# Returns the value of the top item without removing it from the stack.
+
+# If the stack is empty (top == NULL), then no element exists.
+# Otherwise, simply return the data of the node pointed by top.
+
+# def peek(self):
+ 
+#     if self.top is None:
+#         print("Stack is Empty")
+#         return -1
+ 
+#     return self.top.data
+
+
+# Time Complexity: O(1)
+# Auxiliary Space: O(1)
+
+
+
+
+# isEmpty Operation
+# Checks whether the stack has no elements.
+
+# If the top pointer is NULL, it means the stack is empty and the function returns true.
+# Otherwise, it returns false.
+
+# def isEmpty(self):
+#     return self.top is None
+
+# Time Complexity: O(1)
+# Auxiliary Space: O(1)
+
+
+
+# Stack Implementation using Linked List
+
+# Node structure
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.next = None
+
+# Stack implementation using linked list
+class myStack:
+    def __init__(self):
+        # initially stack is empty
+        self.top = None
+        self.count = 0
+
+    # push operation
+    def push(self, x):
+        temp = Node(x)
+        temp.next = self.top
+        self.top = temp
+
+        self.count += 1
+
+    # pop operation
+    def pop(self):
+        if self.top is None:
+            print("Stack Underflow")
+            return -1
+        temp = self.top
+        self.top = self.top.next
+        val = temp.data
+
+        self.count -= 1
+        return val
+
+    # peek operation
+    def peek(self):
+        if self.top is None:
+            print("Stack is Empty")
+            return -1
+        return self.top.data
+
+    # check if stack is empty
+    def isEmpty(self):
+        return self.top is None
+
+    # size of stack
+    def size(self):
+        return self.count
+
+
+if __name__ == "__main__":
+    st = myStack()
+
+    # pushing elements
+    st.push(1)
+    st.push(2)
+    st.push(3)
+    st.push(4)
+
+    # popping one element
+    print("Popped:", st.pop())
+
+    # checking top element
+    print("Top element:", st.peek())
+
+    # checking if stack is empty
+    print("Is stack empty:", "Yes" if st.isEmpty() else "No")
+
+    # checking current size
+    print("Current size:", st.size())
+    
+    
+# Output
+# Popped: 4
+# Top element: 3
+# Is stack empty: No
+# Current size: 3
