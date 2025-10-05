@@ -42,6 +42,13 @@
 
 
 
+
+
+
+
+
+
+
 # Array and String
 
 # Patterns & Questions:
@@ -72,44 +79,44 @@
 #             sett.add(s[i])
 #         return longest
 
-    # Given a string s, find the length of the longest substring without duplicate characters.
+# Given a string s, find the length of the longest substring without duplicate characters.
 
-    # Example 1:
+# Example 1:
 
-    # Input: s = "abcabcbb"
-    # Output: 3
-    # Explanation: The answer is "abc", with the length of 3.
-    # Example 2:
+# Input: s = "abcabcbb"
+# Output: 3
+# Explanation: The answer is "abc", with the length of 3.
+# Example 2:
 
-    # Input: s = "bbbbb"
-    # Output: 1
-    # Explanation: The answer is "b", with the length of 1.
-    # Example 3:
+# Input: s = "bbbbb"
+# Output: 1
+# Explanation: The answer is "b", with the length of 1.
+# Example 3:
 
-    # Input: s = "pwwkew"
-    # Output: 3
-    # Explanation: The answer is "wke", with the length of 3.
-    # Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
-    
-    
-    
-    
-    
-    
-    
- 
- 
- 
- 
- 
- 
- 
- 
+# Input: s = "pwwkew"
+# Output: 3
+# Explanation: The answer is "wke", with the length of 3.
+# Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Find All Anagrams in a String
- 
+
 # Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
 
- 
 
 # Example 1:
 
@@ -126,15 +133,14 @@
 # The substring with start index = 0 is "ab", which is an anagram of "ab".
 # The substring with start index = 1 is "ba", which is an anagram of "ab".
 # The substring with start index = 2 is "ab", which is an anagram of "ab".
- 
+
 
 # Constraints:
 
 # 1 <= s.length, p.length <= 3 * 104
 # s and p consist of lowercase English letters.
- 
- 
- 
+
+
 # from collections import Counter
 # class Solution(object):
 #     def findAnagrams(self, s, p):
@@ -143,82 +149,88 @@
 #         :type p: str
 #         :rtype: List[int]
 #         """
-#         n = len(s)
-#         m = len(p)
-#         if n < m:
-#             return []
-#         p_count = collections.Counter(p)
-#         s_count = collections.defaultdict(int)
+#         p_count = Counter(p)
+#         s_count = Counter(s[: len(p)])
+#         result = []
 
-#         res = []
-#         for i in range(n):
-#             s_count[s[i]]+=1
-#             if i>=m:
-#                 if s_count[s[i-m]]==1:
-#                     del s_count[s[i-m]]
-#                 else:
-#                     s_count[s[i-m]]-=1
-#             if p_count == s_count:
-#                 res.append(i-m+1)
-#         return res
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-    
-    
-    
+#         if p_count == s_count:
+#             result.append(0)
 
-# Minimum Window Substring
-#Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+#         for i in range(len(p), len(s)):
+#             s_count[s[i]] += 1
+#             s_count[s[i - len(p)]] -= 1
 
-# The testcases will be generated such that the answer is unique.
+#             if s_count[s[i - len(p)]] == 0:
+#                 del s_count[s[i - len(p)]]
+
+#             if s_count == p_count:
+#                 result.append(i - len(p) + 1)
+#         return result
+
+# Time: O(n)
+# Space: O(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Longest Repeating Character Replacement
+
+# You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+
+# Return the length of the longest substring containing the same letter you can get after performing the above operations.
+
+ 
 
 # Example 1:
 
-# Input: s = "ADOBECODEBANC", t = "ABC"
-# Output: "BANC"
-# Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+# Input: s = "ABAB", k = 2
+# Output: 4
+# Explanation: Replace the two 'A's with two 'B's or vice versa.
 # Example 2:
 
-# Input: s = "a", t = "a"
-# Output: "a"
-# Explanation: The entire string s is the minimum window.
-# Example 3:
-
-# Input: s = "a", t = "aa"
-# Output: ""
-# Explanation: Both 'a's from t must be included in the window.
-# Since the largest window of s only has one 'a', return empty string.
+# Input: s = "AABABBA", k = 1
+# Output: 4
+# Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
+# The substring "BBBB" has the longest repeating letters, which is 4.
+# There may exists other ways to achieve this answer too.
 
 
-import collections
-def findAnagrams():
-    s = "cbaebabacd"
-    p = "abc"
-    n = len(s)
-    m = len(p)
-    if n < m:
-        return []
-    p_count = collections.Counter(p)
-    s_count = collections.defaultdict(int)
+# def characterReplacement(s: str, k: int) -> int:
+#     freq = {}
+#     left = 0
+#     max_count = 0
+#     res = 0
 
-    res = []
-    for i in range(n):
-        s_count[s[i]]+=1
-        if i>=m:
-            if s_count[s[i-m]]==1:
-                del s_count[s[i-m]]
-            else:
-                s_count[s[i-m]]-=1
-        if p_count == s_count:
-            res.append(i-m+1)
-    return res
+#     for right in range(len(s)):
+#         freq[s[right]] = freq.get(s[right], 0) + 1
+#         max_count = max(max_count, freq[s[right]])
 
-findAnagrams()
+#         # If too many chars to replace
+#         while (right - left + 1) - max_count > k:
+#             freq[s[left]] -= 1
+#             left += 1
+
+#         res = max(res, right - left + 1)
+    
+#     return res
+
+
+# Time: O(n)
+# Space: O(1)
+
+
+
+
+
+
