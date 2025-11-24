@@ -36,19 +36,6 @@
 # Output: [0,1]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Array and String
 
 # Patterns & Questions:
@@ -97,20 +84,6 @@
 # Output: 3
 # Explanation: The answer is "wke", with the length of 3.
 # Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Find All Anagrams in a String
@@ -171,26 +144,12 @@
 # Space: O(1)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Longest Repeating Character Replacement
 
 # You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
 
 # Return the length of the longest substring containing the same letter you can get after performing the above operations.
 
- 
 
 # Example 1:
 
@@ -222,7 +181,7 @@
 #             left += 1
 
 #         res = max(res, right - left + 1)
-    
+
 #     return res
 
 
@@ -232,5 +191,65 @@
 
 
 
+# Two Pointer Technique Questions 
+
+# Leetcode 167
+
+# Two Sum II - Input Array Is Sorted
+#Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
+
+# Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
+
+# The tests are generated such that there is exactly one solution. You may not use the same element twice.
+
+# Your solution must use only constant extra space.
+
+ 
+
+# Example 1:
+
+# Input: numbers = [2,7,11,15], target = 9
+# Output: [1,2]
+# Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
+# Example 2:
+
+# Input: numbers = [2,3,4], target = 6
+# Output: [1,3]
+# Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
+# Example 3:
+
+# Input: numbers = [-1,0], target = -1
+# Output: [1,2]
+# Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 
 
+
+# Solution
+
+# class Solution(object):
+#     def twoSum(self, numbers, target):
+#         """
+#         :type numbers: List[int]
+#         :type target: int
+#         :rtype: List[int]
+#         """
+#         n = len(numbers)
+#         i = 0
+#         j = n-1
+#         while i < j:
+#             sums = numbers[i] + numbers[j]
+#             if sums > target:
+#                 j-=1
+#             elif sums < target: 
+#                 i+=1
+#             else:
+#                 return [i+1, j+1] # If not following the zero indexing
+
+
+
+
+
+
+# Leetcode 238
+
+# Move Zeroes
